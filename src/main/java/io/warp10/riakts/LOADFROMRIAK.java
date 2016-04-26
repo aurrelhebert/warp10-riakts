@@ -42,7 +42,7 @@ import io.warp10.warp.sdk.WarpScriptRawJavaFunction;
 import io.warp10.continuum.store.Constants;
 
 /**
- * Function used to load GTS from RIAK db
+ * Function used to load GTS from RIAK-ts
  *
  */
 public class LOADFROMRIAK implements WarpScriptRawJavaFunction {
@@ -149,21 +149,21 @@ public class LOADFROMRIAK implements WarpScriptRawJavaFunction {
    * Method to parse riak-ts data into GTS
    * @param queryText
    * @param columns
-   * @param riakDBPort
-   * @param riakDBUrl
+   * @param riakTSPort
+   * @param riakTSUrl
    * @return
    * @throws WarpScriptJavaFunctionException
    * @throws UnknownHostException
    * @throws ExecutionException
    * @throws InterruptedException
    */
-  public Collection<GeoTimeSerie> getGTSfromRiakTS(String queryText, Map<String,Object> columns, int riakDBPort, String riakDBUrl) throws WarpScriptJavaFunctionException, UnknownHostException, ExecutionException, InterruptedException {
+  public Collection<GeoTimeSerie> getGTSfromRiakTS(String queryText, Map<String,Object> columns, int riakTSPort, String riakTSUrl) throws WarpScriptJavaFunctionException, UnknownHostException, ExecutionException, InterruptedException {
 
     //
     // Connect to the Riak Client
     //
     
-    RiakClient riakts = RiakClient.newClient(riakDBPort, riakDBUrl);
+    RiakClient riakts = RiakClient.newClient(riakTSPort, riakTSUrl);
     
     if (null != riakts) {
       //
