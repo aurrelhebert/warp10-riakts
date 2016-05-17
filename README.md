@@ -40,7 +40,7 @@ Build this project, and then add the generated jar in Warp 10 server.
 ### Build the Jar ###
 Clone this repository then execute the following command to build a jar.
 ```
-gradle pack
+gradle shadowJar
 ```
 
 ### Warp 10 conf
